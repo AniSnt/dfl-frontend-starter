@@ -1,46 +1,45 @@
 import { HubCard } from "@/components/layout";
-import { RestrictedLoginPanel } from "@/components/auth";
 
 export default function HomePage() {
   return (
-    <main className="space-y-8">
-      <section className="text-center">
+    <div className="space-y-8">
+      <section>
         <h1 className="text-3xl font-bold text-gray-900 dark:text-gray-100">
           DFL Frontend Starter
         </h1>
-        <p className="mx-auto mt-3 max-w-2xl text-gray-600 dark:text-gray-400">
-          Template React configurado com exemplos funcionais de padrões de mercado. Explore cada
-          rota para entender como organizar código em projetos reais.
+        <p className="mt-2 text-gray-500">
+          Exemplos de padrões de frontend moderno. Escolha um card para explorar.
         </p>
       </section>
 
-      <section className="grid gap-4 sm:grid-cols-2">
+      <div className="grid gap-4 sm:grid-cols-2">
         <HubCard
           title="CRUD de Produtos"
-          badge="Paginação"
           to="/exemplo-crud"
-          description="CRUD completo com filtros, paginação, dialog ao editar, rota de detalhe e React Query."
+          description="Filtros, paginação e dialog ao editar."
         />
         <HubCard
-          title="Lista de Fornecedores"
-          badge="Lista simples"
+          title="Lista Simples"
           to="/exemplo-lista-simples"
-          description="Leitura sem paginação — ideal para Todo, galeria e listas pequenas."
+          description="Lista de fornecedores sem paginação."
         />
         <HubCard
-          title="Estado local (useState)"
+          title="Estado Local vs Server State"
           to="/exemplo-estado-local"
-          description="Contraste entre UI state e server state do React Query."
+          description="useState comparado a React Query."
         />
         <HubCard
-          title="Área restrita"
-          badge="Auth stub"
+          title="Área Restrita"
           to="/area-restrita"
-          description="Padrão Context + useAuth + ProtectedRoute preparado para autenticação real."
+          description="ProtectedRoute + Context de autenticação."
         />
-      </section>
-
-      <RestrictedLoginPanel />
-    </main>
+        <HubCard
+          title="Landing Page do Projeto"
+          badge="Novo"
+          to="/landing"
+          description="Página com os destaques do projeto da instituição."
+        />
+      </div>
+    </div>
   );
 }
