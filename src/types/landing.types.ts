@@ -10,3 +10,12 @@ export interface Landing {
   featured: boolean;
   details: string;
 }
+
+export interface CreateLandingDto {
+  title: string;
+  description: string;
+  details: string;
+  featured: boolean;
+}
+
+export type UpdateLandingDto = Partial<CreateLandingDto>;
