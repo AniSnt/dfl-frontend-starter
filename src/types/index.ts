@@ -10,3 +10,4 @@ export type { PaginatedResponse } from "./pagination.types";
 export type { Supplier } from "./supplier.types";
 export type { Movie, CreateMovieDto, UpdateMovieDto } from "./movie.types";
 export type { User, AuthState } from "./auth.types";
+export type { Landing, CreateLandingDto, UpdateLandingDto } from "./landing.types";
