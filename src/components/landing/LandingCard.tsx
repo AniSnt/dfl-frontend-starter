@@ -1,11 +1,15 @@
 import { useState } from "react"; 
-import { Landing } from "@/types/landing.types";
+import { Landing } from "@/types/landing.types"; 
+import { Button } from "@/components/ui";
 
 interface LandingCardProps {
   item: Landing;
+  onToggleFeatured: (item: Landing) => void;
+  onDelete: (id: string) => void;
+  isBusy?: boolean;
 }
 
-export default function LandingCard({ item }: LandingCardProps) {
+export default function LandingCard({ item, onToggleFeatured, onDelete, isBusy }: LandingCardProps) {
   const Icon = item.icon;
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -34,9 +38,18 @@ export default function LandingCard({ item }: LandingCardProps) {
         {isExpanded ? "Ver menos" : "Quero saber mais"}
       </button>
 
-      {isExpanded && (
+         {isExpanded && (
         <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{item.details}</p>
       )}
-    </div>
+
+      <div className="mt-4 flex flex-wrap gap-2">
+        <Button type="button" size="sm" variant="secondary" disabled={isBusy} onClick={() => onToggleFeatured(item)}>
+          {item.featured ? "Remover destaque" : "Destacar"}
+        </Button>
+        <Button type="button" size="sm" variant="danger" disabled={isBusy} onClick={() => onDelete(item.id)}>
+          Excluir
+        </Button>
+      </div>
+    </div>   
   );
 }
